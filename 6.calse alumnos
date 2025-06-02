@@ -1,0 +1,81 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <iomanip> // Para setw
+using namespace std;
+
+const int NUM_MATERIAS = 3;
+
+int main() {
+    int numAlumnos;
+    int totalAprobados = 0, totalReprobados = 0;
+    float sumaGeneralPromedios = 0.0;
+
+    // Solicitar número de alumnos
+    cout << "Ingrese el número total de alumnos a evaluar: ";
+    cin >> numAlumnos;
+    cin.ignore(); // Limpiar buffer
+
+    // Mostrar aviso inicial
+    cout << "\nSe evaluarán a " << numAlumnos << " alumnos.\n";
+    cout << "Cada alumno cursó " << NUM_MATERIAS << " materias.\n";
+    cout << "--------------------------------------\n";
+
+    // Encabezado de la tabla
+    cout << left << setw(20) << "Nombre"
+         << setw(12) << "Materia 1"
+         << setw(12) << "Materia 2"
+         << setw(12) << "Materia 3"
+         << setw(10) << "Promedio"
+         << setw(12) << "Estado" << endl;
+
+    cout << string(78, '-') << endl;
+
+    // Procesar cada alumno
+    for (int i = 0; i < numAlumnos; i++) {
+        string nombre;
+        vector<float> calificaciones(NUM_MATERIAS);
+        float suma = 0.0, promedio;
+        string estado;
+
+        cout << "\nAlumno " << i + 1 << ":\n";
+        cout << "Nombre del alumno: ";
+        getline(cin, nombre);
+
+        for (int j = 0; j < NUM_MATERIAS; j++) {
+            cout << "Calificación en materia " << j + 1 << ": ";
+            cin >> calificaciones[j];
+            suma += calificaciones[j];
+        }
+
+        promedio = suma / NUM_MATERIAS;
+        sumaGeneralPromedios += promedio;
+        estado = (promedio >= 6.0) ? "Aprobado" : "Reprobado";
+
+        if (estado == "Aprobado")
+            totalAprobados++;
+        else
+            totalReprobados++;
+
+        // Mostrar datos del alumno en formato de tabla
+        cout << left << setw(20) << nombre;
+        for (float cal : calificaciones)
+            cout << setw(12) << cal;
+        cout << setw(10) << fixed << setprecision(2) << promedio;
+        cout << setw(12) << estado << endl;
+
+        cin.ignore(); // Limpiar buffer antes del próximo nombre
+    }
+
+    // Calcular promedio general
+    float promedioGeneral = sumaGeneralPromedios / numAlumnos;
+
+    // Mostrar resumen final
+    cout << "\n--- RESUMEN FINAL ---\n";
+    cout << "Total de alumnos procesados: " << numAlumnos << endl;
+    cout << "Promedio general del grupo: " << fixed << setprecision(2) << promedioGeneral << endl;
+    cout << "Total aprobados: " << totalAprobados << endl;
+    cout << "Total reprobados: " << totalReprobados << endl;
+
+    return 0;
+}
