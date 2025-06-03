@@ -1,1 +1,29 @@
+#include <iostream>
+#include <cmath> // Para usar sqrt()
+
+using namespace std;
+
+int main() {
+    double base, altura;
+
+    // Entrada de datos
+    cout << "Ingresa la base del triangulo: ";
+    cin >> base;
+
+    cout << "Ingresa la altura del triangulo: ";
+    cin >> altura;
+
+    // Cálculo del área
+    double area = (base * altura) / 2.0;
+
+    // Cálculo del perímetro (triángulo isósceles)
+    double lado_igual = sqrt(pow(base / 2.0, 2) + pow(altura, 2));
+    double perimetro = base + 2 * lado_igual;
+
+    // Salida
+    cout << "\nÁrea del triángulo: " << area << endl;
+    cout << "Perímetro del triángulo (asumiendo isósceles): " << perimetro << endl;
+
+    return 0;
+}
 
