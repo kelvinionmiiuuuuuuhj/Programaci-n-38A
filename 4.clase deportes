@@ -1,1 +1,54 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Deporte {
+private:
+    // Atributos
+    string nombre;
+    string tipo; // "Individual" o "En equipo"
+    int numeroJugadores;
+    string paisOrigen;
+
+public:
+    // Constructor
+    Deporte(string _nombre, string _tipo, int _numeroJugadores, string _paisOrigen) {
+        nombre = _nombre;
+        tipo = _tipo;
+        numeroJugadores = _numeroJugadores;
+        paisOrigen = _paisOrigen;
+    }
+
+    // Método 1: Mostrar información
+    void mostrarInformacion() {
+        cout << "Nombre del deporte: " << nombre << endl;
+        cout << "Tipo: " << tipo << endl;
+        cout << "Número de jugadores: " << numeroJugadores << endl;
+        cout << "País de origen: " << paisOrigen << endl;
+    }
+
+    // Método 2: Practicar el deporte
+    void practicar() {
+        cout << "Estás practicando " << nombre << "." << endl;
+    }
+
+    // Método 3: Descripción general
+    void describir() {
+        cout << nombre << " es un deporte de tipo " << tipo 
+             << ", que se originó en " << paisOrigen 
+             << " y generalmente se juega con " << numeroJugadores << " jugadores." << endl;
+    }
+};
+
+int main() {
+    // Crear un objeto de la clase Deporte
+    Deporte miDeporte("Fútbol", "En equipo", 11, "Inglaterra");
+
+    // Usar los métodos
+    miDeporte.mostrarInformacion();
+    miDeporte.practicar();
+    miDeporte.describir();
+
+    return 0;
+}
 
