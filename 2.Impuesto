@@ -1,1 +1,31 @@
+#include <stdio.h>   // Para printf y scanf
+#include <cmath>     // Para pow
 
+int main() 
+{
+    double capitalInicial, tasaInteres, capitalFinal;
+    int años;
+    const int vecesCompuestos = 12;  // Capitalización mensual (12 veces al año)
+
+    // Solicitar los datos
+    printf("Ingrese la cantidad a invertir:\n");
+    scanf("%lf", &capitalInicial);
+
+    printf("Ingrese la tasa de interes anual en porcentaje:\n");
+    scanf("%lf", &tasaInteres);
+
+    printf("Numero de años para la inversion:\n");
+    scanf("%d", &años);
+
+    // Convertir la tasa de interes a decimal
+    double tasaDecimal = tasaInteres / 100.0;
+
+    // Fórmula del interés compuesto con capitalización mensual
+    capitalFinal = capitalInicial * pow(1 + (tasaDecimal / vecesCompuestos), vecesCompuestos * años);
+
+    // Mostrar resultado con 2 decimales
+    printf("El capital final después de %d años (capitalizado mensualmente) será: $%.2f\n", años, capitalFinal);
+
+    return 0;
+}
+    
