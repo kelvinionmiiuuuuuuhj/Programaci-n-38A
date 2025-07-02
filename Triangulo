@@ -1,0 +1,64 @@
+#include <iostream>
+#include <cmath> 
+
+using namespace std;
+
+
+class Angulo5 {
+private:
+    double tamAngulo;
+    double senAng;
+    double cosAng;
+
+public:
+    
+    void establecerTamAngulo(double ang) {
+        tamAngulo = ang;
+    }
+
+    
+    void calcularSenAng() {
+        senAng = sin(tamAngulo);
+    }
+
+    
+    void calcularCosAng() {
+        cosAng = cos(tamAngulo);
+    }
+
+    
+    double obtenerSenAng() {
+        return senAng;
+    }
+
+    
+    double obtenerCosAng() {
+        return cosAng;
+    }
+};
+
+
+class EjecutaAngulo5 {
+public:
+    static void ejecutar() {
+        Angulo5 angulo;
+        double radianes;
+
+        cout << "Ingrese el tamaño del ángulo en radianes: ";
+        cin >> radianes;
+
+        angulo.establecerTamAngulo(radianes);
+        angulo.calcularSenAng();
+        angulo.calcularCosAng();
+
+        cout << "Seno: " << angulo.obtenerSenAng() << endl;
+        cout << "Coseno: " << angulo.obtenerCosAng() << endl;
+    }
+};
+
+
+int main() {
+    EjecutaAngulo5::ejecutar();
+    return 0;
+}
+    
