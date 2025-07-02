@@ -1,0 +1,21 @@
+#include <iostream>   // para cout, cin
+#include <iomanip>    // para fixed y setprecision
+#include <cmath>      // para sin y cos
+
+int main() {
+    double angulo;  // ángulo en radianes
+
+    std::cout << "Ingrese el ángulo en radianes: ";
+    std::cin  >> angulo;
+
+    double seno    = std::sin(angulo);
+    double coseno  = std::cos(angulo);
+
+    // Imprimir con 6 decimales (puedes ajustar)
+    std::cout << std::fixed << std::setprecision(3);
+    std::cout << "El seno del ángulo es: "   << seno   << '\n';
+    std::cout << "El coseno del ángulo es: " << coseno << '\n';
+
+    return 0;
+}
+    
