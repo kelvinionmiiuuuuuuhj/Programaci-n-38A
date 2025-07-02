@@ -1,0 +1,35 @@
+//compilar polimorfismo de tiempo
+//se invocan las funciones sobrecargadas haciendo coincidir el número
+//y el tipo de argumn la información está presente durante el tiempo de 
+//compilacio
+//Esto significa que c++ El compilador seleccionará la función correcta en el momento
+//de la compilación el polimorfismo en tiempo de compilación se logra mediante la sobre carga de funciones y ma sobrecarga de operwdores
+
+
+
+#include <iostream>
+using namespace std;
+
+void test(int i) 
+ { 
+  cout << "the int is "<< i << endl;
+  }
+  void test (doble f)
+  
+  {
+   cout << "the flota is " << f << endl;
+   }
+   
+   void test(chat const *ch) 
+   {
+    cout << " the chat* is" << ch << endl;
+    }
+    
+    int main()
+    {
+    test(5);
+    test(5,5);
+    test("five");
+    return 0;
+    }
+    
